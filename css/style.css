@@ -1,0 +1,753 @@
+:root {
+    --primary-color: #eaf4f4;
+    --secondary-color: #c9ada7;
+    --tercondary-color: #22223b;
+    --cuarto-color: #252422;
+    --botom-color: #778da9;
+    --font-size-title: 3rem;
+    --font-size-text: 1.25rem;
+}
+
+.header__container{
+    background-color:var(--primary-color); /* Fondo blanco o ajusta según tu diseño */
+    padding: 20px 10%; /* Ajustado para pantallas más pequeñas */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+}
+.cabecera__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+    
+}
+.logo__item a{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--cuarto-color);
+}
+.menu__toggle{
+    display: none;
+}
+.cabecera__nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 2.0px;
+    gap: 30px;
+    
+}
+
+.cabecera__item a{
+    font-size: 1.5rem;
+    color: var(--cuarto-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+    
+    
+
+}
+
+.cabecera__item a:hover{
+    color: var(--botom-color);
+    
+
+
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    
+
+    .cabecera__nav {
+        flex-direction: column;
+        align-items: flex-start;
+        
+        width: 100%;
+        margin-top: 20px;
+        display: none; /* Ocultar menú por defecto */
+    }
+    
+    .menu__toggle {
+        display: block; /* Mostrar botón hamburguesa en pantallas pequeñas */
+        font-size: 2rem;
+        padding: 10px;
+    }
+    .menu__toggle.hidden {
+        display: none;
+    }
+
+    /* Mostrar menú al hacer clic en el botón */
+    .cabecera__nav.active {
+        display: flex;
+        
+        
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .header__container{
+        padding: 20px 5%; /* Ajustado para pantallas más pequeñas */
+        
+    }
+    
+    .cabecera__nav {
+        gap: 20px;
+        
+    }
+
+    .cabecera__item a {
+        font-size: 1.8rem;
+    }
+    .logo__item a{
+        font-size: 2.5rem;
+    }
+    .menu__toggle {
+        display: block; /* Mostrar botón hamburguesa en pantallas pequeñas */
+        font-size: 2rem;
+        padding: 10px;
+        
+    }
+}
+
+
+/************************* Sectición hero********************** *************/
+
+.hero__container {
+    display: flex; /* Usar flexbox para organizar el contenido */
+    justify-content: space-between; /* Espaciado entre texto e imagen */
+    align-items: center; /* Centrar verticalmente */
+    padding: 0px 10%;
+    background-color: var(--primary-color); /* Color de fondo */
+    padding-top: 150px; /* Espacio superior */
+    padding-bottom: 150px; /* Espacio inferior */
+    gap: 30px;
+    opacity: 0; /* Comienza invisible */
+    transform: translateY(-80px); /* Comienza desplazado hacia arriba */
+    transition: opacity 0.5s ease, transform 0.9s ease; /* Transiciones suaves */
+    
+    
+    
+}
+.hero__container.visible {
+    opacity: 1; /* Se vuelve visible */
+    transform: translateY(0); /* Regresa a su posición original */
+}
+.hero__texto {
+    flex: 1; /* Toma el espacio disponible */
+    max-width: 50%; /* Ancho máximo */
+    letter-spacing: 1.4px;
+}
+.hero__title {
+    font-size: 35px; 
+    font-weight: bold; 
+    margin-bottom: 15px; /* Espaciado inferior */
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+.hero__description {
+    font-size: 22px; 
+    margin-bottom: 20px; 
+    line-height: 1.5; /* Altura de línea */
+}
+@keyframes cambiarColor {
+    10% {
+        color: #219ebc;
+    }
+    20% {
+        color: #fb8500;
+    }
+    40% {
+        color: #80ed99;
+    }
+    60% {
+        color: #d5bdaf;
+    }
+    80% {
+        color: #80ed99;
+    }
+    100% {
+        color: #be95c4;
+    }
+}
+.texto-destacado{
+    animation: cambiarColor 5s infinite; /* Cambia cada 3 segundos en un loop */
+    display: inline-block; /* Para que la animación funcione en cada palabra */
+    text-transform: uppercase;
+    font-size: 1.5rem;
+
+
+}
+
+
+
+.social__list {
+    display: flex; 
+    gap: 30px; /* Espaciado entre ítems */
+    font-size: 19px; 
+
+}
+
+.social__item {
+    color: var(--tercondary-color); /* Color de los enlaces */
+    transition: transform 0.5s ease;
+
+}
+
+.social__item:hover {
+    color: var(--botom-color); /* Color de los enlaces al pasar el mouse */
+    transform: scale(1.3); /* Efecto de escala */
+}
+
+.hero__figure {
+    flex: 1; /* Toma el espacio disponible */
+    display: flex; /* Para centrar la imagen */
+    justify-content: center; /* Centrar horizontalmente */
+}
+.hero__img {
+    max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+    border-radius: 100px; /* Bordes redondeados */
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .hero__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 5%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        gap: 30px;
+        
+    }
+    .hero__texto {
+        max-width: 100%;
+        flex: 1;
+        line-height: 1.2;
+    }
+    .hero__title{
+        font-size: 2.0rem;
+        margin-bottom: 20px;
+    }
+    .hero__description{
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    .social__item{
+        font-size: 20px;
+        margin-top: 20px;
+        text-align: center;
+
+    }
+
+}
+@media (max-width: 480px) {
+    .hero__figure{
+        display: none;
+    }
+    .hero__container{
+        padding: 30px 5%;
+        padding-bottom: 50px;
+    }
+    .social__item{
+        font-size: 18px;
+        margin-top: 20px;
+        text-align: center;
+
+    }
+
+}
+/*¨*¨¨¨¨******* main contenido principal ***********/
+
+.container{
+    display: flex;
+    flex-direction: column;
+
+}
+.about__container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10%;
+    background-color: #778da9; /* Fondo claro para contrastar con el contenedor principal */
+    
+    /* opacity: 0; 
+    transform: translateY(-80px); 
+    transition: opacity 0.5s ease, transform 0.9s ease;  */
+}
+.about__content {
+    
+    text-align: left;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.about__title {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+.about__description{
+    font-size: 1.3rem;
+    letter-spacing: 1.6px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+/* Transiciones y animación de entrada */
+.about__container, .about__content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about__container.visible, .about__content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .about__container {
+        padding: 30px 5%;
+    }
+    .about__title {
+        font-size: 2rem;
+    }
+    .about__description {
+        font-size: 1.1rem;
+    }
+}
+
+/******************* sección habilidades(skills)****************************/
+
+.skills__container {
+    padding: 50px 10%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: var(--primary-color);
+
+}
+
+.skills__title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    letter-spacing: 2.0px;
+    font-weight: bold;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.skills__category {
+    flex: 1;
+    margin: 20px;
+}
+
+.skills__subtitle {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.skills__img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 70px;
+    
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.skill img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.skill p {
+    font-size: 1.2rem;
+}
+.skill img:hover {
+    transform: rotate(10deg);
+}
+ 
+/* Flexbox para alinear Frontend y Backend en columnas */
+.skills__grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px; /* Espacio entre las dos columnas */
+}
+
+/* Responsivo: apilar las columnas en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .skills__grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/************* **************seccion hobbies **************************/
+
+.hobbies__container {
+    padding: 30px 10%; /* Espaciado alrededor de la sección */
+    background-color: #f1f1f1; /* Fondo claro */
+    text-align: center; /* Centrar el contenido */
+    background: var(--primary-color);
+     
+
+}
+.hobbie__title {
+    font-size: 2.4rem;
+    font-weight: bold; 
+    margin-bottom: 50px; /* Espaciado inferior */
+    letter-spacing: 2.0px;
+}
+.hobbies__img {
+    display: flex; 
+    justify-content: center; 
+    gap: 100px; 
+    flex-wrap: wrap; /* Permitir que se ajusten en dispositivos más pequeños */
+    padding-bottom: 50px;
+}
+.hobby {
+    display: flex; /* Flexbox para alinear íconos y texto */
+    flex-direction: column; /* Íconos arriba, texto debajo */
+    align-items: center; /* Centrar el contenido */
+    text-align: center; /* Centrar texto */
+}
+.hobby i {
+    font-size: 60px; /* Tamaño grande para los íconos */
+    margin-bottom: 30px; /* Espacio entre el ícono y el texto */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transición para hover */
+}
+
+.hobby i:hover {
+    transform: scale(1.2); /* Efecto de zoom al pasar el mouse */
+}
+
+.hobby p {
+    font-size: 20px; /* Tamaño de texto */
+    color: #333; /* Color del texto */
+    
+}
+@media (max-width: 480px) {
+    .hobbies__img {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hobbie__title{
+        padding-bottom: 30px;
+    }
+}
+
+/************* **************seccion formación academica **************************/
+.education__banner {
+    padding: 100px 5%;
+    background-color: var(--botom-color);
+    text-align: center;
+}
+
+.education__title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+}
+
+.education__img {
+    display: flex;
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    gap: 80px; /* Espacio entre cada bloque de educación */
+    flex-wrap: wrap; /* Para que sea responsive, los items se acomodarán cuando el espacio no sea suficiente */
+}
+
+.education {
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.education img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.education__name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.education__description {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 768px) {
+    .education__img {
+        flex-direction: column; /* Colocar los elementos uno debajo del otro */
+        gap: 20px;
+    }
+
+    .education__title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .education {
+        max-width: 90%; /* Aumentar el ancho en móviles */
+        margin: 0 auto; /* Centramos las tarjetas */
+    }
+
+    .education__name {
+        font-size: 1.2rem;
+    }
+
+    .education__description {
+        font-size: 1rem;
+    }
+}
+
+/* Pantallas muy pequeñas (menores a 480px) */
+@media (max-width: 480px) {
+    .education__title {
+        font-size: 2.1rem;
+        margin-bottom: 50px;
+    }
+
+
+    .education__name {
+        font-size: 1.3rem;
+    }
+
+    .education__description {
+        font-size: 1.2rem;
+    }
+}
+
+/******************************* seccion experiencia profesional ****************************/
+
+.experience__container {
+    padding: 100px 10%;
+    background-color: var(--botom-color);
+    
+}
+
+.experience__title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.experience__img {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.experience {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    flex-basis: calc(50% - 30px); /* Dos columnas */
+    text-align: center;
+}
+.experience img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary-color);
+}
+.experience__subtitle {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: var(--cuarto-color);
+}
+
+.experience__name {
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+.proyecto__link {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color:var(--botom-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.proyecto__link:hover {
+    background-color: var(--secondary-color);
+}
+
+.experience:hover {
+    transform: translateY(-5px);
+}
+@media (max-width: 768px) {
+    .experience {
+        flex-basis: 100%; /* Una columna en pantallas pequeñas */
+    }
+    
+    .experience img {
+        height: 180px; /* Ajustar altura de las imágenes en pantallas más pequeñas */
+    }
+}
+
+
+/************************** seccion contacto **********************/
+/* Sección Contacto */
+.contact__container {
+    padding: 100px 5%;
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+.contact__title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--cuarto-color);
+    font-weight: bold;
+}
+
+.contact__description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    
+}
+
+.contact__form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px 50px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.form__group {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.form__group label {
+    font-size: 1rem;
+    color: var(--cuarto-color);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.form__group input, 
+.form__group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--cuarto-color);
+    background-color: #f9f9f9;
+    
+}
+
+.form__group input:focus, 
+.form__group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.contact__submit {
+    padding: 12px 20px;
+    background-color: #00b4d8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .contact__form {
+        padding: 15px 50px;
+    }
+
+    .contact__title {
+        font-size: 2rem;
+    }
+
+    .contact__description {
+        font-size: 1rem;
+    }
+}
+
+
+/*********************** footer *******************/
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    text-align: center;
+    
+    font-size: 1rem;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--cuarto-color);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 0;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+}
